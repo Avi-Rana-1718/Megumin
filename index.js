@@ -1,7 +1,7 @@
 // api url
 var id = document.getElementById("idinp").value;
 const api_url =
-	"https://aninames-api-default-rtdb.firebaseio.com/anime" + ".json";
+	"https://aninames-api-default-rtdb.firebaseio.com/anime" + id + ".json";
 
 // Defining async function
 async function getapi(api_url) {
