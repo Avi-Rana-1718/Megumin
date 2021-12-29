@@ -1,2 +1,2 @@
 # tamako
-Anime API
+Anime website
