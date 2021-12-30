@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Anime</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/3a3c813962.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <style>
+      body {
+          background-color: #26272C;
+          color:white;
+          padding: 0;
+          margin: 0;
+      }
+#video {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+#video-div {
+    position:relative;
+    padding: 0;
+    margin: 0;
+    background-color: blue;
+    }
+#details {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    z-index:2;
+    left: 10;
+    text-shadow: 1px 1px 3px black;
+    top:10;
+}
+#center {
+    position:absolute;
+    left:50%;
+    right:50%;
+    top:50%;
+    text-shadow: 1px 1px 3px black;
+}
+#options {
+    position: absolute;
+    background-color: #282828;
+    opacity: 0.6;
+    border-radius: 3px;
+    padding: 10px;
+    right:10;
+    top:10;
+}
+#progress-bar {
+    display: none;
+}
+#bottom-div {
+    position: absolute;
+    bottom: 0;
+    left:10;
+    z-index:2;
+    text-shadow: 0.5px 0.5px 1.5px black;
+}
+.time {
+    font-family: 'Poppins', sans-serif;
+}
+  </style>
+  <script>
+function openFullscreen() {
+    var elem = document.getElementById("video-div");
+ document.getElementById("nfscreenopt").style.display = "inline";
+document.getElementById("fscreenopt").style.display = "none";
+document.getElementById("details").style.display ="none";
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+document.getElementById("fscreenopt").style.display = "inline";
+document.getElementById("nfscreenopt").style.display = "none";
+document.getElementById("details").style.display ="block";
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
+function show() {
+document.getElementById("details").style.display ="block";
+document.getElementById("options").style.display ="block";
+document.getElementById("time-div").style.display ="block"
+    document.getElementById("progress-div").style.display ="block";
+}
+    var timeout = setInterval(hide,3000);
+function hide() {
+    document.getElementById("pause").style.display ="none";
+}
+</script>
+  <body>
+<div id="video-div" onmouseover="show()"onclick="play()">
+        <video id="video" onmouseout="show()" controls="false">
+  <source src="https://lb.loadfast1.com/cdn25/d03b4aa079f88cfb67aa2d4c6c1ff787/EP.1.v0.1639204614.1080p.mp4?mac=xWaaiVOymXBFAF8L1Yqg8DKEelLVNf%2B7o2tr6pd7Bpk%3D&expiry=1640857263080" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<br>
+<div id="details">
+    <span id="title">Darling in the franxx</span><br>
+    <span id="episode">Episode 5</span>
+    </div>
+    <div id="options">
+        <span class="options" id="openscreen"><span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand"></i></span>
+ <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress"></i></span>
+    </div>
+    <div id="center">
+        <h1 id="play"><i class="fas fa-play"></i></h1>
+        <h1 id="pause"><i id="pause" class="fas fa-pause"></i></h1>
+    </div>
+    <div id="bottom-div">
+    <div id="time-div" class="time">
+  <time id="time-elapsed">00:00</time>
+  <span> / </span>
+  <time id="duration">00:00</time>
+</div>
+<div id="progress-div" class="video-progress">
+    <progress id="progress-bar" value="0" min="0"></progress>
+  <input class="seek" id="seek" value="0" min="0" type="range" step="1" onmouseover="updateSeekTooltip()">
+</div>
+</div>
+</div>
+<div id="info">
+    <h6>Darling In The Franxx</h6>
+    <small>Episode 5</small>
+</div>
+<script>
+var vid = document.getElementById("video");
+vid.removeAttribute("controls");
+  function play() {
+      if (vid.paused) {
+          vid.play();
+          document.getElementById("play").style.display="none";
+                    document.getElementById("pause").style.display="block";
+document.getElementById("details").style.display ="none";
+document.getElementById("options").style.display ="none";
+document.getElementById("time-div").style.display ="none"
+    document.getElementById("progress-div").style.display ="none";
+      } else {
+          vid.pause();
+          document.getElementById("play").style.display="block";
+          document.getElementById("pause").style.display="none";
+          document.getElementById("details").style.display ="block";
+          document.getElementById("time-div").style.display ="block"
+    document.getElementById("progress-div").style.display ="block";
+document.getElementById("options").style.display ="block";
+      }
+  }
+  //tine
+  const timeElapsed = document.getElementById("time-elapsed");
+const duration = document.getElementById("duration");
+function formatTime(timeInSeconds) {
+  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
+  return {
+    minutes: result.substr(3, 2),
+    seconds: result.substr(6, 2),
+  };
+};
+function initializeVideo() {
+  const videoDuration = Math.round(vid.duration);
+  seek.setAttribute('max', videoDuration);
+  progressBar.setAttribute('max', videoDuration);
+  const time = formatTime(videoDuration);
+  duration.innerText = `${time.minutes}:${time.seconds}`;
+  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
+}
+vid.addEventListener('loadedmetadata', initializeVideo);
+
+const progressBar = document.getElementById('progress-bar');
+const seek = document.getElementById('seek');
+// updateProgress indicates how far through the video
+// the current playback is by updating the progress bar
+function updateProgress() {
+  seek.value = Math.floor(vid.currentTime);
+  var ctime = formatTime(vid.currentTime);
+  document.getElementById("time-elapsed").innerHTML = `${ctime.minutes}:${ctime.seconds}`;
+}
+vid.addEventListener('timeupdate', updateProgress);
+
+const seekTooltip = document.getElementById('seek-tooltip');
+// updateSeekTooltip uses the position of the mouse on the progress bar to
+// roughly work out what point in the video the user will skip to if
+// the progress bar is clicked at that point
+function updateSeekTooltip(event) {
+  const skipTo = Math.round((event.offsetX / event.target.clientWidth) * parseInt(event.target.getAttribute('max'), 10));
+  seek.setAttribute('data-seek', skipTo)
+  const t = formatTime(skipTo);
+  seekTooltip.innerHTML = `${t.minutes}:${t.seconds}`;
+  const rect = vid.getBoundingClientRect();
+  seekTooltip.style.left = `${event.pageX - rect.left}px`;
+}
+seek.addEventListener('mousemove', updateSeekTooltip);
+// skipAhead jumps to a different point in the video when
+// the progress bar is clicked
+function skipAhead(event) {
+  const skipTo = event.target.dataset.seek ? event.target.dataset.seek : event.target.value;
+  vid.currentTime = skipTo;
+  progressBar.value = skipTo;
+  seek.value = skipTo;
+}
+seek.addEventListener('input', skipAhead);
+</script>
+  </body>
+</html>
