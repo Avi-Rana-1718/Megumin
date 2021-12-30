@@ -19,21 +19,25 @@
       }
 #video {
     width: 100%;
+height:100%;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: black;
 }
 #video-div {
     position:relative;
-    padding: 0;
+    padding: 0px;
+height:max-content;
     margin: 0;
     background-color: blue;
+align-items:center;
     }
 #details {
     position: absolute;
     font-family: 'Poppins', sans-serif;
     z-index:2;
     left: 10;
+margin:10px;
     text-shadow: 1px 1px 3px black;
     top:10;
 }
@@ -49,8 +53,10 @@
     background-color: #282828;
     opacity: 0.6;
     border-radius: 3px;
-    padding: 10px;
-    right:10;
+    padding: 5px;
+margin:5px;
+z-index:2;
+    right:0;
     top:10;
 }
 #progress-bar {
@@ -111,19 +117,20 @@ function hide() {
 </script>
   <body>
 <div id="video-div" onmouseover="show()"onclick="play()">
-        <video id="video" onmouseout="show()" controls="false">
-  <source src="https://lb.loadfast1.com/cdn25/d03b4aa079f88cfb67aa2d4c6c1ff787/EP.1.v0.1639204614.1080p.mp4?mac=xWaaiVOymXBFAF8L1Yqg8DKEelLVNf%2B7o2tr6pd7Bpk%3D&expiry=1640857263080" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<br>
 <div id="details">
     <span id="title">Darling in the franxx</span><br>
     <span id="episode">Episode 5</span>
     </div>
-    <div id="options">
+<div id="options">
         <span class="options" id="openscreen"><span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand"></i></span>
  <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress"></i></span>
     </div>
+        <video id="video" onmouseout="show()" controls="false">
+  <source src="https://lb.loadfast1.com/cdn25/d03b4aa079f88cfb67aa2d4c6c1ff787/EP.1.v0.1639204614.1080p.mp4?mac=jPueLNX%2FuG6Yy2w5NE4AYuMPoJko2MNctB8Uq6i1L%2Fc%3D&expiry=1640869746569" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<br>
+    
     <div id="center">
         <h1 id="play"><i class="fas fa-play"></i></h1>
         <h1 id="pause"><i id="pause" class="fas fa-pause"></i></h1>
