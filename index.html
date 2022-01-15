@@ -58,6 +58,8 @@ font-family: 'Poppins', sans-serif;
 #invite {
     color:#808080;
 }
+#vid {
+}
 footer {
     padding: 8px;
 box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -98,7 +100,16 @@ footer a:hover {
 <div id="exp">
 <!--NAV END-->
 <div id="main">
-    <video src="https://www322.akamai-cdn-content.com/tysxfltbyg6oj6cdacabjhcveamylp2kexz7f5oxoe7utuj4mreefvzmv4qa/detective-conan-episode-10341642257061.0.mp4" controls></video>
+    <div id="vid">
+   <iframe 
+  src="https://gogoplay.io/embedplus?id=MTc0NTU3&token=XKzRRalk2_pNe1172jvN2Q&expires=1642271753"
+id="iframe"
+width="100%"
+height="40%"
+   frameborder="0" 
+   allowfullscreen
+></iframe>
+</div>
 <span id="title">Detective Conan</span><br>
 <span id="ep">Episode 1</span><br>
 </div>
@@ -115,5 +126,13 @@ footer a:hover {
 <a href="#"><i class="fab fa-github"></i></a>
 <a href="#"><i class="fab fa-patreon"></i></a>
 </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+
+    var url = params.get("src");
+$('#iframe').attr('src', url);
+document.getElementById("title").innerHTML = params.get("title");
+</script>
 </body>
 </html>
