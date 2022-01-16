@@ -111,7 +111,7 @@ height="40%"
 ></iframe>
 </div>
 <span id="title">Detective Conan</span><br>
-<span id="ep">Episode 1</span><br>
+<span id="espan">Episode <span id="ep"></span></span><br>
 </div>
 <div id="support">
     Add <mark>Tamako</mark> to your server! <a id="invite" href="#"><i class="fas fa-external-link-alt"></i></a>
@@ -132,7 +132,7 @@ const params = new URLSearchParams(window.location.search);
 
     var url = params.get("src");
 $('#iframe').attr('src', url);
-document.getElementById("title").innerHTML = params.get("title");
+document.getElementById("ep").innerHTML = params.get("ep");
 </script>
 </body>
 </html>
