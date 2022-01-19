@@ -13,7 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/3a3c813962.js" crossorigin="anonymous"></script>
-    </head>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+</head>
 <style>
     body {
         background-color: #f3f3f3;
@@ -42,7 +43,7 @@ margin-bottom: 4px;
 #exp {
     height: 100%;
 }
-#support {
+#support, #share {
 font-family: 'Manrope', sans-serif;
 margin: 8px;
 margin-top: 12px;
@@ -62,8 +63,20 @@ text-decoration: none;
 #invite:hover {
     text-decoration: underline;
 }
-#link {
+#link, #share i {
     color:#808080;
+}
+.modal-title {
+    font-family: 'Poppins', sans-serif;
+
+}
+#twitter {
+color:white;
+text-shadow: 2px 2px 4px #000000;
+}
+.social {
+margin: 3px;
+font-size: 24px;
 }
 #vid {
 }
@@ -125,6 +138,27 @@ height="40%"
     <hr>
   Like Tamako? <a id="support-a" href="https://www.patreon.com/_avirana">Support</a> us.
 </div>
+<div id="share" data-bs-toggle="modal" data-bs-target="#exampleModal"> Let your friends know about <mark>Tamako</mark>!
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Share</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<div class="input-group mb-3">
+  <input type="text" value="Watch anime on discord with Tamako! Add the bot: https://dsc.gg/tamakotv" class="form-control" placeholder="" id="clink">
+  <button class="btn btn-secondary" type="button" id="buttoncopy" data-clipboard-target="#clink" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copied"><i class="fas fa-copy"></i></button>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 <footer>
     @Avi Rana
@@ -142,6 +176,13 @@ $('#iframe').attr('src', url);
 document.getElementById("title").innerHTML = params.get("title");
 
 document.getElementById("ep").innerHTML = params.get("ep");
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+new ClipboardJS('.btn');
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 </script>
 </body>
 </html>
