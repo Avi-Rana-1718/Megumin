@@ -63,12 +63,49 @@ console.log(output);
 
 api.search(output)
   .then(data =>{
-  let pembed = new Discord.MessageEmbed()
+ if (info[0].servers[0].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
+    .setTitle(`**${data[0].title}**`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[0].iframe}&title=${title}&ep=${ep})`)
+      .setColor("#E41F7B")
+    .setTimestamp()
+    message.channel.send(pembed)
+    } else if (info[0].servers[1].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
+    .setTitle(`**${data[0].title}**`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[1].iframe}&title=${title}&ep=${ep})`)
+      .setColor("#E41F7B")
+    .setTimestamp()
+    message.channel.send(pembed)
+    } else if (info[0].servers[2].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
     .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[2].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
     .setTimestamp()
     message.channel.send(pembed)
+    } else if (info[0].servers[3].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
+    .setTitle(`**${data[0].title}**`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[3].iframe}&title=${title}&ep=${ep})`)
+      .setColor("#E41F7B")
+    .setTimestamp()
+    message.channel.send(pembed)
+    } else if (info[0].servers[4].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
+    .setTitle(`**${data[0].title}**`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[4].iframe}&title=${title}&ep=${ep})`)
+      .setColor("#E41F7B")
+    .setTimestamp()
+    message.channel.send(pembed)
+    } else if (info[0].servers[5].name == "Xstreamcdn") {
+let pembed = new Discord.MessageEmbed()
+    .setTitle(`**${data[0].title}**`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[5].iframe}&title=${title}&ep=${ep})`)
+      .setColor("#E41F7B")
+    .setTimestamp()
+    message.channel.send(pembed)
+    }
 
  }).catch(() => message.channel.send("Error | Episode not found."));
         });
