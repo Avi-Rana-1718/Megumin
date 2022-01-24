@@ -23,13 +23,17 @@ const api = require('gogoanime-xp');
 client.on("message", async (message) => {
 
 if (message.content == `${prefix}help`) {
-  message.channel.send("__**Commands**__\nPrefix:`!`\n`help`\n`anime <args>`\n`advance <args>`\n**args**: anime name with `-` instead of spaces.")
+  let help = new Discord.MessageEmbed()
+    .setTitle("Help")
+    .setDescription("Prefix:`!`\n`help`\n`anime <args>`\n`advance <args>`\n __Images for reference__: [anime](https://media.discordapp.net/attachments/931635047562375208/935085696815878154/IMG_20220124_134540.jpg) , [advance](https://media.discordapp.net/attachments/931635047562375208/935085697143025684/IMG_20220124_134603.jpg)")
+  .setColor("#E41F7B")
+  message.channel.send(help);
 }
-
-if (message.content.includes(`${prefix}anime`)) {
+  if( message.content.includes(`${prefix}anime`)) {
 const precom = `${prefix}anime`;
-    	const args = message.content.slice(precom.length).trim().split(" ");
-	const command = args.shift().toLowerCase();
+    	const args = message.content.slice(precom.length).trim().replace(/ /g,"-");
+  console.log(args);
+    const command = args.toLowerCase();
   //ANIME DATA SERVR
     api.search(command)
   .then(res => {
@@ -118,13 +122,13 @@ let pembed = new Discord.MessageEmbed()
   if (message.content.includes(`${prefix}advance`)) {
   
 const advcommand = `!advance`;
-    	const advarg = message.content.slice(advcommand.length).trim().split(" ");
-        const advinput = advarg.shift().toLowerCase();
+    	const advarg = message.content.slice(advcommand.length).trim().replace(/ /g,"-");
+        const advinput = advarg.toLowerCase();
     console.log(advinput);
   
  api.animeEpisodeHandler(advinput)
   .then(res =>{
-  const advoutput = advinput.split("-episode-");
+  const advoutput = advinput.split("episode");
 api.search(advoutput[0])
   .then(data =>{
     var title = data[0].title.replace(/ /g,"-");
