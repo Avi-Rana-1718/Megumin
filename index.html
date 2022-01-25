@@ -52,7 +52,6 @@ margin-top: 5px;
   will-change: box-shadow,transform;
   
 }
-
 header button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
@@ -91,6 +90,11 @@ color:#808080;
 footer a:hover {
     background-color: c4c4c4;
 }
+ @media only screen and (max-width: 600px) {
+#banimg {
+display:none;
+      }
+}
 </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -115,9 +119,13 @@ footer a:hover {
   </div>
 </nav>
 <div id="exp">
-<header>
-    Watch anime on discord.<br>
+<header class="d-flex bd-highlight mb-3">
+<div  class="me-auto p-2 bd-highlight">
+    <h3>Watch anime on discord</h3><br>
 <button onclick="window.location.href='https://dsc.gg/tamakotv';"><i class="fas fa-plus-square"></i> Invite</button> <button onclick="window.location.href='https://discord.gg/6qcYP89Zh2';"><i class="fab fa-discord"></i>  Discord</button>
+</div>
+<div class="p-2 bd-highlight">
+<img id="banimg" src="banner.png"></div>
 </header>
 <hr>
     <div class="perks">
