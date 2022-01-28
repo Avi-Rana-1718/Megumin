@@ -5,6 +5,7 @@ app.get('/', (req, res) => {
   res.send('Hello Express app!')
 });
 
+
 app.listen(3000, () => {
   console.log('server started');
 });
@@ -12,8 +13,11 @@ app.listen(3000, () => {
 let Discord = require("discord.js");
 let client = new Discord.Client;
 
+
 client.on("ready", () => {
   console.log("ready");
+  client.channels.cache.get('936499399385841724').send(`
+<:reload:936618925062516736> Restarted bot.`);
   client.user.setPresence({ activity: { name: "!help" } });
 });
 
@@ -25,7 +29,7 @@ client.on("message", async (message) => {
 if (message.content == `${prefix}help`) {
   let help = new Discord.MessageEmbed()
     .setTitle("Help")
-    .setDescription("Prefix:`!`\n`help`\n`anime <args>`\n`advance <args>`\n __Images for reference__: [anime](https://media.discordapp.net/attachments/931635047562375208/935085696815878154/IMG_20220124_134540.jpg) , [advance](https://media.discordapp.net/attachments/931635047562375208/935085697143025684/IMG_20220124_134603.jpg)")
+    .setDescription("Prefix:`!`\n`help`\n`anime <args>`\n`advance <args>`\n __Images for reference__: [anime](https://media.discordapp.net/attachments/935080227086946365/936224748734652466/IMG_20220124_134540.jpg) , [advance](https://media.discordapp.net/attachments/935080227086946365/936224748495589417/IMG_20220124_134603.jpg)")
   .setColor("#E41F7B")
   message.channel.send(help);
 }
@@ -59,62 +63,86 @@ var title = res[0].id;
         collector.on('collect', message => {
           var ep = message.content;
 
+message.channel.startTyping();
+
   api.animeEpisodeHandler(`${title}-episode-${ep}`)
-  .then(info =>{
+  .then(info => {
 const output = `${title}`;
 console.log(`${command}-episode-${ep}`)
 console.log(output);
-
 api.search(output)
   .then(data =>{
- if (info[0].servers[0].name == "Xstreamcdn") {
+
+    message.channel.stopTyping();
+
+ if (info[0].servers[0].name == "Streamsb") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[0].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[0].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+      .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
-    } else if (info[0].servers[1].name == "Xstreamcdn") {
+    } else if (info[0].servers[1].name == "Streamsb") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[1].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[1].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+      .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
-    } else if (info[0].servers[2].name == "Xstreamcdn") {
+    } else if (info[0].servers[2].name == "Streamsb") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[2].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[2].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+      .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
-    } else if (info[0].servers[3].name == "Xstreamcdn") {
+    } else if (info[0].servers[3].name == "Streamsb") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[3].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[3].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+            .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
     } else if (info[0].servers[4].name == "Xstreamcdn") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[4].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[4].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+            .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
     } else if (info[0].servers[5].name == "Xstreamcdn") {
 let pembed = new Discord.MessageEmbed()
     .setTitle(`**${data[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Tamako?src=${info[0].servers[5].iframe}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://tamako.gq/watch?src=${info[0].servers[5].iframe}&title=${title}&ep=${ep})`)
       .setColor("#E41F7B")
+            .setFooter("Use !advance if the default source doesn't work.")
     .setTimestamp()
     message.channel.send(pembed)
     }
 
- }).catch(() => message.channel.send("Error | Episode not found."));
-        });
+ }).catch(err => {
+   message.channel.send("`Error` | Episode not found.");
+    client.channels.cache.get('936499399385841724').send(`
+<:cancel:936620265264271410> Error | Invaild Episode\n ${err}`);
+ });
+        }).catch(err => {
+          message.channel.stopTyping();
+   message.channel.send("`Error` | Episode not found.");
+    client.channels.cache.get('936499399385841724').send(`
+<:cancel:936620265264271410> Error | Invaild Episode\n ${err}`);
+ });
+
 });
-    }).catch(() => message.channel.send("`Error` | Invalid search"));
+    }).catch(err => {
+      message.channel.send("`Error` | Invalid search");
+      client.channels.cache.get('936499399385841724').send(`
+<:cancel:936620265264271410> Error | Invaild search\n ${err}`);
+    });
 }
 // PLAY EPISODE
 
@@ -147,6 +175,13 @@ api.search(advoutput[0])
 
 
   });
+        }
+        
+        if (message.content == "!servers") {
+           client.guilds.cache.forEach(guild => {
+        guild.channels.cache.filter(x => x.type != "category").random().createInvite()
+          .then(inv => console.log(`${guild.name} | ${inv.url}`));
+      });
         }
   });
 
