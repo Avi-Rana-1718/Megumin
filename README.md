@@ -1,5 +1,5 @@
 # Tamako
-Tamako is an anime scraper bot for Discord.
+Tamako is an anime scraper bot for Discord.  
 [Invite](https://dsc.gg/tamakotv) [Support server](https://discord.com/invite/6qcYP89Zh2)
 
 Made using
