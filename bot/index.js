@@ -17,8 +17,13 @@ let client = new Discord.Client;
 client.on("ready", () => {
   console.log("ready");
   client.channels.cache.get('936499399385841724').send(`
-<:reload:936618925062516736> Restarted bot.`);
+<:reload:936618925062516736> Restarted the bot.`);
   client.user.setPresence({ activity: { name: "!help" } });
+});
+
+client.on("guildCreate", (guild) => {
+    client.channels.cache.get('936499399385841724').send(`
+<:check:936520510672613386> Joined a new server : ${guild.name}`);
 });
 
 const prefix ="!";
