@@ -20,9 +20,17 @@
         background-color: #f3f3f3;
 font-family: 'Poppins', sans-serif;
     }
-.navbar {
+#nav {
+    z-index: 5;
     background-color: #d64562;
 font-family: 'Poppins', sans-serif;
+display:inline-block;
+padding:10px;
+color:white;
+}
+#nav div {
+    margin:0;
+    padding:0;
 }
 #brand {
     color:white;
@@ -32,7 +40,12 @@ font-family: 'Poppins', sans-serif;
 padding: 10px;
 }
 header {
-padding:5px;}
+height: 90vh;
+align-items: center;
+  display: flex;
+  justify-content: center;
+background-color: #d64562;
+}
 header button {
   align-items: center;
 border:none;
@@ -50,6 +63,13 @@ margin-top: 5px;
   -webkit-user-select: none;
   touch-action: manipulation;
   will-change: box-shadow,transform;
+
+}
+header div {
+    background-color: white;
+    border-radius: 3px;
+    padding: 15px;
+    margin: 10px;
   
 }
 header button:focus {
@@ -66,6 +86,14 @@ padding: 10px;
 border-radius: 3px;
 margin: 5px;
 box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+#menu {
+    display: none;
+}
+#opt a {
+    padding-right: 5px;
+    color:white;
+    text-decoration: none;
 }
 #post {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -90,44 +118,82 @@ color:#808080;
 footer a:hover {
     background-color: c4c4c4;
 }
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 45; /* Stay at the top */
+  left: 0;
+  background-color: #f3f3f3; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  text-decoration: underline;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
  @media only screen and (max-width: 600px) {
 #banimg {
 display:none;
       }
+      #nav {
+          padding-top: 10px;
+          z-index: 2;
+      }
+      #opt {
+          display:none;
+      }
+      #menu {
+          display: block;
+      }
 }
 </style>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container-fluid">
-    <a id="brand" class="navbar-brand" href="index.html">Tamako</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/_AviRana">Support</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div id="exp">
-<header class="d-flex bd-highlight mb-3">
-<div  class="me-auto p-2 bd-highlight">
-    <h3>Watch anime on discord</h3><br>
-<button onclick="window.location.href='https://dsc.gg/tamakotv';"><i class="fas fa-plus-square"></i> Invite</button> <button onclick="window.location.href='https://discord.gg/6qcYP89Zh2';"><i class="fab fa-discord"></i>  Discord</button>
+<div id="nav" class="d-flex justify-content-between">
+  <div><h4>Tamako</h4></div>
+  <div id="opt"><a href="index.html">Home</a> <a href="https://twitter.com/_AviRana">Support</a> <a href="about.html">About</a></div>
+  <div onclick="openNav()"><h4><i id="menu" class="fas fa-bars"></i></h4></div>
 </div>
-<div class="p-2 bd-highlight">
-<img id="banimg" src="banner.png"></div>
+        <div id="sidebar" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="https://twitter.com/_AviRana">Support</a>
+  <a href="about.html">About</a>
+</div>
+        <!--/NAV-->
+<header>
+    <div class="align-middle">
+        <br>
+    <h3>Watch anime on Discord!</h3><br>
+<mark>Tamako</mark> enables you to watch anime just by typing one simple command. Choose from multiple sources in the quality <u>you</u> want.
+    <br><br>
+<mark>Tamako</mark>'s Version 1.0 now avaliable! Join the support server for more information.<br><br>
+<button onclick="window.location.href='https://dsc.gg/tamakotv';"><i class="fas fa-plus-square"></i> Invite</button> <button onclick="window.location.href='https://discord.gg/6qcYP89Zh2';"><i class="fab fa-discord"></i>  Discord</button>
+<br>
+</div>
 </header>
-<hr>
+<div id="exp">
     <div class="perks">
         <i class="fas fa-stream"></i>
         Multiple source support.
@@ -160,6 +226,14 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+function openNav() {
+  document.getElementById("sidebar").style.width = "100%";
+}
+
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("sidebar").style.width = "0";
+}
 </script>
 </body>
 </html>
