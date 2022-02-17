@@ -1,21 +1,30 @@
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello Express app!')
+});
+
+
+app.listen(3000, () => {
+  console.log('Server started');
+});
+
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-const { token } = require('./config.json');
-
 client.once("ready", () => {
   console.log("Ready");
+  client.user.setPresence({ activities: [{ name: `slash commands on ${client.guilds.cache.size} servers` }] });
+ client.channels.cache.get('936499399385841724').send(`<:reload:936618925062516736> Restarted the bot`);
+});
+
+client.once("guildCreate", (guild) => {
+    client.channels.cache.get('936499399385841724').send(`
+<:check:936520510672613386> Joined a new server : ${guild.name}`);
 });
 
 const { MessageEmbed } = require('discord.js');
-
-client.once("guildCreate", (guild) => {
-  let welcome = new MessageEmbed()
-  .setURL("https://tamako.gq")
-	.setAuthor({ name: "Tamako", iconURL: "https://media.discordapp.net/attachments/935080227086946365/937727449616244786/20220127_124502.png", url: "https://tamako.gq" })
-	.setDescription("Some description here")
-    client.channel.send({ embeds: [welcome] })
-});
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -42,4 +51,4 @@ const command = client.commands.get(interaction.commandName);
 	}
 });
 
-client.login(token);
+client.login(process.env.token);
