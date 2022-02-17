@@ -4,7 +4,7 @@
          type="image/png"
          href="logo.png">
       <meta charset="UTF-8">
-<meta name="theme-color" content="#d64562">
+<meta name="theme-color" content="#D62247">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Primary Meta Tags -->
 <title>Megumin</title>
@@ -39,7 +39,7 @@ font-family: 'Poppins', sans-serif;
     }
 #nav {
     z-index: 5;
-    background-color: #d64562;
+    background-color: #D62247;
 font-family: 'Poppins', sans-serif;
 display:inline-block;
 padding:10px;
@@ -61,7 +61,7 @@ height: 90vh;
 align-items: center;
   display: flex;
   justify-content: center;
-background-color: #d64562;
+background-color: #D62247;
 }
 header button {
   align-items: center;
@@ -109,9 +109,14 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 color:#F0A9B7;
 }
 #opt a {
-    padding-right: 5px;
+    padding:5px;
     color:white;
     text-decoration: none;
+}
+#opt a:hover {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+text-decoration: underline;
+border-radius: 3px;
 }
 #post {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -171,6 +176,22 @@ footer a:hover {
   font-size: 36px;
   margin-left: 50px;
 }
+#preview {
+    display: inline-block;
+width:100%;
+padding: 0px;
+margin:0px;
+}
+#preview div {
+    margin:5px;
+border-radius:0px;
+padding: 0px;
+}
+#logo {
+    width: 145px;
+height: 145px;
+border-radius: 90%;
+}
  @media only screen and (max-width: 600px) {
 #banimg {
 display:none;
@@ -180,10 +201,10 @@ display:none;
           z-index: 2;
       }
       #opt {
-          display:none;
+          display:block;
       }
       #menu {
-          display: block;
+          display: none;
       }
 }
 </style>
@@ -191,10 +212,9 @@ display:none;
 <div id="nav" class="d-flex justify-content-between">
   <div><h4>Megumin</h4></div>
   <div id="opt"><a href="index.html">Home</a> <a href="https://twitter.com/_AviRana">Support</a> <a href="about.html">About</a></div>
-  <div onclick="openNav()"><h4><i id="menu" class="fas fa-bars"></i></h4></div>
 </div>
         <div id="sidebar" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav(">&times;</a>
   <a href="index.html">Home</a>
   <a href="https://twitter.com/_AviRana">Support</a>
   <a href="about.html">About</a>
@@ -203,11 +223,19 @@ display:none;
 <header>
     <div class="align-middle">
         <br>
-    <h3>Watch anime on Discord!</h3><br>
-Megumin enables you to watch anime just by typing one simple command. Choose from multiple sources and stream anime in the quality <u>you</u> want.
-    <br><br>
-Megumin's Version 2.0 now avaliable! Slash commands and much more implemented, join the support server for more information.<br><br>
-<button onclick="window.location.href='https://dsc.gg/tamakotv';"><i class="fas fa-plus-square"></i> Invite</button> <button onclick="window.location.href='https://discord.gg/6qcYP89Zh2';"><i class="fab fa-discord"></i>  Discord</button>
+<div id="preview" class="d-flex justify-content-start">
+    <div>
+    <img id="logo" src="https://media.discordapp.net/attachments/935080227086946365/943936476201254962/kirito_icons.jpeg">
+</div>
+<div>
+    <br>
+    <h3>Megumin</h3>
++34 servers<br>
+24/7 uptime
+</div>
+</div><br>
+Watch anime on discord with Megumin. It enables you to watch anime just by typing one simple command. Choose from multiple sources and stream anime in the quality you desire.<br>
+<button onclick="window.location.href='https://dsc.gg/meguminv2';"><i class="fas fa-plus-square"></i> Invite</button> <button onclick="window.location.href='https://discord.gg/6qcYP89Zh2';"><i class="fab fa-discord"></i> Discord</button>
 <br>
 </div>
 </header>
