@@ -1,6 +1,4 @@
-# Tamako
-Tamako is an anime scraper bot for Discord.  
-[Invite](https://dsc.gg/tamakotv) & [Support server](https://discord.com/invite/6qcYP89Zh2)
+# Megumin
 
 Made using
 - [Gogoanime-XP@1.0.4](https://github.com/jainprashul/gogoanime)
