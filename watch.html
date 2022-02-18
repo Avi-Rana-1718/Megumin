@@ -184,7 +184,7 @@ const params = new URLSearchParams(window.location.search);
 
     var url = params.get("src");
 $('#iframe').attr('src', url);
-document.getElementById("title").innerHTML = params.get("title");
+document.getElementById("title").innerHTML = params.get("title").replace(/-/g," ");
 
 document.getElementById("ep").innerHTML = params.get("ep");
 var myModal = document.getElementById('myModal')
