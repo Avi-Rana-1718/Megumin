@@ -4,6 +4,6 @@
 
 Made using
 - [Gogoanime-XP@1.0.4](https://github.com/jainprashul/gogoanime)
-- Discord.js@12.5.3
+- Discord.js@13
 
 Hosted on repl.it
