@@ -1,5 +1,5 @@
 # Megumin
-
+Megumin is an anime scraper bot for Discord! Watch anime on discord in HD from multiple sources in the quality you want. Invite the bot to your server now!
 [Website](https://avi-rana-1718.github.io/Megumin/) & [Discord](https://discord.com/invite/6qcYP89Zh2)
 
 Made using
