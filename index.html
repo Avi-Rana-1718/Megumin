@@ -87,7 +87,7 @@ header div {
     border-radius: 3px;
     padding: 15px;
     margin: 10px;
-  
+
 }
 header button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
@@ -208,6 +208,12 @@ display:none;
       }
 }
 </style>
+<script>
+fetch("https://cors-anywhere.herokuapp.com/https://megumin-6.avi-rana-1718.repl.co/").then(res => res.json()).then(data => {
+    console.log(data);
+     document.getElementById("servers").innerHTML = Number(data);
+ });
+</script>
 <body>
 <div id="nav" class="d-flex justify-content-between">
   <div><h4>Megumin</h4></div>
@@ -230,7 +236,7 @@ display:none;
 <div>
     <br>
     <h3>Megumin</h3>
-+44 servers<br>
+<span id="servers"></span> servers<br>
 24/7 uptime
 </div>
 </div><br>
