@@ -17,12 +17,19 @@ module.exports = {
       .setRequired(true)),
 	async execute(interaction) {
     await interaction.deferReply();
-      await wait(5000);
   //Search
   api.search(interaction.options.getString('name'))
   .then(res => {
 //Title, Ep length, Ep number
     var title = res[0].id;
+    var name = res[0].title.replace(/ /g,"-");
+    if (name.includes("(Dub)")) {
+var name = name.replace("(Dub)","Dub");
+    }
+        if (name.includes("(TV)")) {
+      var name = name.replace("(TV)","TV")
+    }
+    console.log(name);
 var count = res[0].totalEpisodes;
 var ep = interaction.options.getNumber('episode');
     console.log(ep);
@@ -30,7 +37,7 @@ var ep = interaction.options.getNumber('episode');
 let info = new MessageEmbed()
     .setTitle(res[0].title)
     .setDescription(res[0].synopsis)
-    .setThumbnail(res[0].img)
+.setThumbnail(encodeURI(res[0].img))
     .setColor("#E41F7B")
     .addFields(
       	{ name: 'Status', value: `${res[0].status}`, inline: true },
@@ -59,7 +66,7 @@ var url = data[0].servers[5].iframe;
     }
 let src = new MessageEmbed()
     .setTitle(`**${res[0].title}**`)
-    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Megumin/watch?src=${url}&title=${title}&ep=${ep})`)
+    .setDescription(`Episode ${ep}\n**Watch**: [Link](https://avi-rana-1718.github.io/Megumin/watch?src=${url}&title=${name}&ep=${ep})`)
       .setColor("#E41F7B")
     .setTimestamp()
   interaction.followUp({ embeds: [src] });
