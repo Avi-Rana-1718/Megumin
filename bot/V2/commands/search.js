@@ -13,17 +13,22 @@ module.exports = {
 			.setRequired(true)),
 	async execute(interaction) {
 await interaction.deferReply();
-      await wait(5000);
   //Search
   api.search(interaction.options.getString('name'))
   .then(res => {
+
+       const list = [];
+    for(var i = 0; i < res.length; i++) {
+
+  list.push(`${i}. ${res[i].title}\n`);
+      }
+    
       let search = new MessageEmbed()
       .setTitle(`Search results for ${interaction.options.getString('name')}`)
-      for(var i = 0; i < res.length; i++) {
- 
-  search.addField(`${i}`, `${res[i].id}`);
-      }
-      
+        .setDescription(`${list.toString().replace(/,/g,"")}`)
+          .setColor("#E41F7B")
+        .setFooter("Use /manual to get anime from this list")
+          .setTimestamp()
     interaction.editReply({ embeds: [search] });
   }).catch(err => {
        let error = new MessageEmbed()
