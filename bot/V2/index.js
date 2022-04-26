@@ -8,7 +8,7 @@ const app = express();
 
 client.once("ready", () => {
   console.log("Ready");
-    client.user.setPresence({ activities: [{ name: `slash commands on ${client.guilds.cache.size} servers` }] });
+     client.channels.cache.get('936499399385841724').send(`<:reload:936618925062516736> Restarted the bot`);
   client.user.setPresence({ activities: [{ name: `slash commands on ${client.guilds.cache.size} servers` }] });
  const name = client.guilds.cache.size;
   const userCount = client.guilds.cache.reduce((a, g) => a+g.memberCount, 0)
