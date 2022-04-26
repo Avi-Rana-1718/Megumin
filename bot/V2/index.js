@@ -1,22 +1,23 @@
-const express = require('express');
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Hello Express app!')
-});
-
-
-app.listen(3000, () => {
-  console.log('Server started');
-});
 
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
+const express = require('express');
+const app = express();
+
 client.once("ready", () => {
   console.log("Ready");
+    client.user.setPresence({ activities: [{ name: `slash commands on ${client.guilds.cache.size} servers` }] });
   client.user.setPresence({ activities: [{ name: `slash commands on ${client.guilds.cache.size} servers` }] });
- client.channels.cache.get('936499399385841724').send(`<:reload:936618925062516736> Restarted the bot`);
+ const name = client.guilds.cache.size;
+  const userCount = client.guilds.cache.reduce((a, g) => a+g.memberCount, 0)
+app.get('/', (req, res) => {
+res.send(`${name}`);
+});
+ });
+app.listen(3000, () => {
+  console.log('Server started');
 });
 
 client.once("guildCreate", (guild) => {
