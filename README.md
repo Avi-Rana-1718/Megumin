@@ -6,6 +6,7 @@ Megumin is an anime scraper bot for Discord! Watch anime on discord in HD from m
 
 Made using
 - [Gogoanime-XP@1.0.4](https://github.com/jainprashul/gogoanime)
+- myanimelists
 - Discord.js@13
 
 Hosted on repl.it
