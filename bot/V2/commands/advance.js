@@ -23,24 +23,29 @@ await interaction.deferReply();
   .then(res => {
 //Title, Ep length, Ep number
     var title = res[0].id;
+  var title = res[0].id;
+    var name = res[0].title.replace(/ /g,"-");
+    if (name.includes("(Dub)")) {
+var name = name.replace("(Dub)","Dub");
+    }
+        if (name.includes("(TV)")) {
+      var name = name.replace("(TV)","TV")
+    }
 var count = res[0].totalEpisodes;
 var ep = interaction.options.getNumber('episode');
     console.log(ep);
         //EPLINK
  api.animeEpisodeHandler(`${title}-episode-${ep}`)
   .then(data => {
+      const list = [];
+   for(var i = 0; i < data[0].servers.length; i++) {
+  list.push(`[${data[0].servers[i].name}](https://avi-rana-1718.github.io/Megumin/watch?src=${data[0].servers[i].iframe}&title=${name}&ep=${ep})\n`);
+      }
 const output = `${title}`;
 //SET SRC   
   let adv = new MessageEmbed()
-  .setTitle(res[0].title)
-      .addFields(
-        {name:`${data[0].servers[0].name}`, value:`http://${data[0].servers[0].iframe}`},
-        {name:`${data[0].servers[1].name}`, value:`${data[0].servers[1].iframe}`},
-        {name:`${data[0].servers[2].name}`, value:`${data[0].servers[2].iframe}`},
-        {name:`${data[0].servers[3].name}`, value:`${data[0].servers[3].iframe}`},
-        {name:`${data[0].servers[4].name}`, value:`${data[0].servers[4].iframe}`},
-)
-      .setColor("#E41F7B")
+  .setDescription(`**${res[0].title} - Episode ${ep} **\nA total of ${data[0].servers.length} video servers found!\nChoose from the following: \n${list.toString().replace(/,/g,"")}`)
+    .setColor("#E41F7B")
     .setTimestamp()
   interaction.editReply({ embeds: [adv] });
   }).catch(err => {
