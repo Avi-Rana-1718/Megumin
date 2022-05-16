@@ -85,7 +85,17 @@ text-shadow: 2px 2px 4px #000000;
 margin: 3px;
 font-size: 24px;
 }
-#vid {
+#alert {
+    font-family: 'Manrope', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin: 8px;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 3px;
+
+}
+#alert i {
+    margin-right: 8px;
 }
 footer {
     padding: 8px;
@@ -133,11 +143,11 @@ footer a:hover {
 <!--NAV END-->
 <div id="main">
     <div id="vid">
-   <iframe 
-  src="https://gogoplay.io/embedplus?id=MTc0NTU3&token=XKzRRalk2_pNe1172jvN2Q&expires=1642271753"
+   <iframe
+  src="#"
 id="iframe"
 width="100%"
-   frameborder="0" 
+   frameborder="0"
    allowfullscreen
 ></iframe>
 </div>
@@ -150,6 +160,12 @@ width="100%"
   Like Megumin? <a id="support-a" href="https://twitter.com/_AviRana">Support</a> us.
 </div>
 <div id="share" data-bs-toggle="modal" data-bs-target="#exampleModal"> Let your friends know about <mark>Megumin</mark>!
+</div>
+<div id="alert" class="alert alert-warning d-flex align-items-center" role="alert">
+    <i class="fas fa-exclamation-triangle"></i>
+    <div>
+    Ads are not implemented by us. They are implemented by the video servers.
+  </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
