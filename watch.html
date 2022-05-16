@@ -107,7 +107,7 @@ footer a:hover {
          }
 }
 </style>
-<body>
+<body onload="sendMessage()">
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a id="brand" class="navbar-brand" href="index.html">Megumin</a>
@@ -195,5 +195,22 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 </script>
+    <script>
+            function sendMessage() {
+        var url = location.href;
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/975642838551379998/2bbkeng-RLvQK3cCpU50_jJGc0mnWlb7V9CP_kzexe_JYIwizaI7KbWyzOVFFP2ivr0x");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "Megumin Tracker",
+        avatar_url: "",
+        content: `${url} visited.`
+      }
+
+      request.send(JSON.stringify(params));
+    }
+        </script>
 </body>
 </html>
