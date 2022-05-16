@@ -181,7 +181,7 @@ width="100%"
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 const params = new URLSearchParams(window.location.search);
-
+sendMessage();
     var url = params.get("src");
 $('#iframe').attr('src', url);
 document.getElementById("title").innerHTML = params.get("title").replace(/-/g," ");
@@ -194,7 +194,7 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 
-sendMessage();
+
 })
             function sendMessage() {
         var url = location.href;
@@ -203,13 +203,13 @@ sendMessage();
 
       request.setRequestHeader('Content-type', 'application/json');
 
-      const params = {
+      const param = {
         username: "Megumin Tracker",
         avatar_url: "https://media.discordapp.net/attachments/935080227086946365/943936476201254962/kirito_icons.jpeg",
-        content: `Site loaded \n Title: ${params.get("title").replace(/-/g," ")} \n Episode: ${params.get("ep")} \n Source: ${params.get("src")} `
+        content: `__Site loaded__ \nTitle: ${params.get("title").replace(/-/g," ")} \nEpisode: ${params.get("ep")}  \nSource: ${params.get("src")} `
       }
 
-      request.send(JSON.stringify(params));
+      request.send(JSON.stringify(param));
     }
         </script>
 </body>
