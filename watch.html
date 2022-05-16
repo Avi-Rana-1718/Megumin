@@ -206,7 +206,16 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       const param = {
         username: "Megumin Tracker",
         avatar_url: "https://media.discordapp.net/attachments/935080227086946365/943936476201254962/kirito_icons.jpeg",
-        content: `__Site loaded__ \nTitle: ${params.get("title").replace(/-/g," ")} \nEpisode: ${params.get("ep")}  \nSource: ${params.get("src")} `
+        content: null,
+"embeds": [
+    {
+      "description": `\nTitle: ${params.get("title").replace(/-/g," ")} \nEpisode: ${params.get("ep")}  \nSource: [Link](${params.get("src")})`,
+      "color": 3158326,
+      "author": {
+        "name": "Site loaded"
+      }
+    }
+  ]
       }
 
       request.send(JSON.stringify(param));
