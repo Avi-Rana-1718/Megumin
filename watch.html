@@ -215,7 +215,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             function sendMessage() {
         var url = location.href;
       const request = new XMLHttpRequest();
-      request.open("POST", process.env.WEBHOOK_TOKEN);
+      request.open("POST", secrets.WEBHOOK_TOKEN);
 
       request.setRequestHeader('Content-type', 'application/json');
 
